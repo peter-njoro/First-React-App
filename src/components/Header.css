@@ -1,0 +1,54 @@
+.header {
+  background-color: #F9FAFF;
+  padding: 12px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 56px;
+}
+
+.logo h1 {
+  font-family: 'Comfortaa', cursive;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 32.4px;
+  color: #25282B;
+}
+
+.nav {
+  display: flex;
+  gap: 48px;
+}
+
+.nav-link {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+  color: #25282B;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #FDC435;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    gap: 24px;
+  }
+  
+  .nav-link {
+    font-size: 16px;
+  }
+}

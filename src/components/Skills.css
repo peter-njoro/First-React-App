@@ -1,0 +1,160 @@
+.skills {
+  padding: 80px 0;
+  background-color: #F9FAFF;
+}
+
+.skills-content {
+  max-width: 992px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px;
+  align-items: center;
+  justify-items: center;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.skill-icon {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-icon img {
+  position: absolute;
+}
+
+/* Python icons */
+.python-blue {
+  width: 125px;
+  height: 125px;
+  top: 16.67px;
+  left: 37.67px;
+}
+
+.python-yellow {
+  width: 125px;
+  height: 125px;
+  top: 58.33px;
+  left: 79.33px;
+}
+
+/* Django icons */
+.django-1 {
+  width: 75px;
+  height: 175px;
+  top: 12.5px;
+  left: 103.5px;
+}
+
+.django-2 {
+  width: 87.5px;
+  height: 97.7px;
+  top: 50px;
+  left: 41px;
+}
+
+/* Postgres icons */
+.postgres-1 {
+  width: 170.64px;
+  height: 176.47px;
+  top: 11.77px;
+  left: 28.08px;
+}
+
+.postgres-2 {
+  width: 185.63px;
+  height: 191.42px;
+  top: 4.29px;
+  left: 20.6px;
+}
+
+.postgres-3 {
+  width: 170.65px;
+  height: 176.5px;
+  top: 11.77px;
+  left: 28.07px;
+}
+
+.postgres-4 {
+  width: 175.63px;
+  height: 182.1px;
+  top: 9px;
+  left: 25.43px;
+}
+
+/* Git icon */
+.git-icon {
+  width: 179.28px;
+  height: 179.29px;
+  top: 10.36px;
+  left: 10.36px;
+}
+
+/* Data Analysis icons */
+.data-1 {
+  width: 185.71px;
+  height: 185.71px;
+  top: 7.14px;
+  left: 7.14px;
+}
+
+.data-2 {
+  width: 142.86px;
+  height: 85.71px;
+  top: 42.86px;
+  left: 50px;
+}
+
+.skill-name {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 27px;
+  color: #828282;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .skills {
+    padding: 60px 0;
+  }
+  
+  .skills-content {
+    padding: 40px 20px;
+  }
+  
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  
+  .skill-icon {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .skill-icon img {
+    transform: scale(0.75);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
