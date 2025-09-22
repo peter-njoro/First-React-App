@@ -9,25 +9,36 @@
     "build": "vite build"
   },
   "dependencies": {
-    "clsx": "2.1.1",
+    "@radix-ui/react-slot": "^1.2.3",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "lucide-react": "^0.453.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "react-router-dom": "^6.8.1",
-    "tailwind-merge": "2.5.4",
-    "tailwindcss-animate": "1.0.7",
-    "@radix-ui/react-slot": "^1.1.0",
-    "class-variance-authority": "^0.7.0"
+    "tailwind-merge": "^3.3.1",
+    "tailwind-variants": "^3.1.1",
+    "tailwindcss-animate": "1.0.7"
   },
   "devDependencies": {
     "@animaapp/vite-plugin-screen-graph": "^0.1.5",
-    "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@typescript-eslint/eslint-plugin": "^8.44.0",
+    "@typescript-eslint/parser": "^8.44.0",
     "@vitejs/plugin-react": "4.3.4",
+    "autoprefixer": "^10.4.21",
     "esbuild": "0.24.0",
+    "eslint": "^9.36.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "globals": "15.12.0",
-    "tailwindcss": "3.4.16",
-    "vite": "6.0.4"
+    "postcss": "^8.5.6",
+    "prettier": "^3.6.2",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.9.2",
+    "vite": "^6.0.4"
   },
   "alias": {
     "@/*": "./src/components/ui/$1"

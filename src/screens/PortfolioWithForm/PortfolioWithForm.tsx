@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 
@@ -177,7 +176,7 @@ export const PortfolioWithForm = (): JSX.Element => {
           <Card
             key={index}
             className="flex w-[992px] h-[524px] items-start relative rounded-3xl overflow-hidden shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0"
-            style={{ "--animation-delay": `${800 + index * 200}ms` }}
+            style={{ "--animation-delay": `${800 + index * 200}ms` } as React.CSSProperties}
           >
             <CardContent className="p-0 flex w-full h-full">
               {project.imagePosition === "left" ? (
@@ -256,7 +255,7 @@ export const PortfolioWithForm = (): JSX.Element => {
             <div
               key={index}
               className={`translate-y-[-1rem] animate-fade-in opacity-0`}
-              style={{ "--animation-delay": `${1800 + index * 200}ms` }}
+              style={{ "--animation-delay": `${800 + index * 200}ms` } as React.CSSProperties}
             >
               {/* Yellow Circle */}
               <div
@@ -313,7 +312,7 @@ export const PortfolioWithForm = (): JSX.Element => {
             <div
               key={skill.name}
               className={`translate-y-[-1rem] animate-fade-in opacity-0`}
-              style={{ "--animation-delay": `${2800 + index * 100}ms` }}
+              style={{ "--animation-delay": `${800 + index * 200}ms` } as React.CSSProperties}
             >
               <img
                 className={`absolute w-[200px] h-[200px] ${skill.position}`}
@@ -348,7 +347,7 @@ export const PortfolioWithForm = (): JSX.Element => {
             <img
               key={index}
               className={`absolute w-[200px] h-[200px] ${contact.position} translate-y-[-1rem] animate-fade-in opacity-0 hover:scale-110 transition-transform cursor-pointer`}
-              style={{ "--animation-delay": `${3700 + index * 100}ms` }}
+              style={{ "--animation-delay": `${800 + index * 200}ms` } as React.CSSProperties}
               alt="Contact"
               src={contact.icon}
             />
