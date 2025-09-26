@@ -40,6 +40,11 @@
     "typescript": "^5.9.2",
     "vite": "^6.0.4"
   },
+  "overrides": {
+    "@animaapp/vite-plugin-screen-graph": {
+      "vite": "6.0.4"
+    }
+  },
   "alias": {
     "@/*": "./src/components/ui/$1"
   }
