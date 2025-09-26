@@ -243,14 +243,52 @@ export const PortfolioWithForm = (): JSX.Element => {
                       <p className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg leading-[27px] mb-6">
                         {project.description}
                       </p>
-                      <Button
-                        variant="outline"
-                        className="rounded-3xl border border-solid border-[#25282b] hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
-                      >
-                        <span className="[font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap">
-                          View Project
-                        </span>
-                      </Button>
+                      {project.title === "Facetrack-Lite" ? (
+                        <a
+                          href="https://github.com/peter-njoro/facetrack-lite"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            variant="outline"
+                            className="rounded-3xl border border-solid border-[#25282b] hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
+                          >
+                            <span className="[font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap">
+                              View Project
+                            </span>
+                          </Button>
+                        </a>
+                      ) : project.title === "Task & Project Management Tool" ? (
+                        <a
+                          href="https://github.com/peter-njoro/Task-Project-Management-Tool"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            variant="outline"
+                            className="rounded-3xl border border-solid border-[#25282b] hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
+                          >
+                            <span className="[font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap">
+                              View Project
+                            </span>
+                          </Button>
+                        </a>
+                      ) : project.title === "Django REST APIs, Role-Based Access, and AJAX Search Projects." ? (
+                        <a
+                          href="https://github.com/peter-njoro?tab=repositories"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            variant="outline"
+                            className="rounded-3xl border border-solid border-[#25282b] hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
+                          >
+                            <span className="[font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap">
+                              View Project
+                            </span>
+                          </Button>
+                        </a>
+                      ) : null}
                     </div>
                   </>
                 ) : (
@@ -262,14 +300,52 @@ export const PortfolioWithForm = (): JSX.Element => {
                       <p className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg leading-[27px] mb-6">
                         {project.description}
                       </p>
-                      <Button
-                        variant="outline"
-                        className="rounded-3xl border border-solid border-[#25282b] hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
-                      >
-                        <span className="[font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap">
-                          View Project
-                        </span>
-                      </Button>
+                      {project.title === "Facetrack-Lite" ? (
+                        <a
+                          href="https://github.com/peter-njoro/facetrack-lite"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            variant="outline"
+                            className="rounded-3xl border border-solid border-[#25282b] hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
+                          >
+                            <span className="[font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap">
+                              View Project
+                            </span>
+                          </Button>
+                        </a>
+                      ) : project.title === "Task & Project Management Tool" ? (
+                        <a
+                          href="https://github.com/peter-njoro/Task-Project-Management-Tool"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            variant="outline"
+                            className="rounded-3xl border border-solid border-[#25282b] hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
+                          >
+                            <span className="[font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap">
+                              View Project
+                            </span>
+                          </Button>
+                        </a>
+                      ) : project.title === "Django REST APIs, Role-Based Access, and AJAX Search Projects." ? (
+                        <a
+                          href="https://github.com/peter-njoro?tab=repositories"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button
+                            variant="outline"
+                            className="rounded-3xl border border-solid border-[#25282b] hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
+                          >
+                            <span className="[font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap">
+                              View Project
+                            </span>
+                          </Button>
+                        </a>
+                      ) : null}
                     </div>
                     <img
                       className="w-full md:w-1/2 h-64 md:h-[524px] object-cover"
@@ -376,22 +452,55 @@ export const PortfolioWithForm = (): JSX.Element => {
           <Card className="w-full bg-white rounded-3xl shadow-lg animate-fade-in">
             <CardContent className="p-8 w-full h-full">
               <div className="flex flex-col md:flex-row justify-around items-center h-full gap-8">
-                {contactIcons.map((contact, index) => (
-                  <div
-                    key={index}
-                    className="flex flex-col items-center gap-6 animate-fade-in"
-                    style={{ "--animation-delay": `${3700 + index * 200}ms` } as React.CSSProperties}
-                  >
-                    <img
-                      className="w-24 h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer"
-                      alt="Contact"
-                      src={contact.icon}
-                    />
-                    <div className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg">
-                      {index === 0 ? 'Email' : index === 1 ? 'GitHub' : 'LinkedIn'}
-                    </div>
+                {/* Email */}
+                <a
+                  href="mailto:peterchegen12@gmail.com"
+                  className="flex flex-col items-center gap-6 animate-fade-in"
+                  style={{ "--animation-delay": `3700ms` } as React.CSSProperties}
+                >
+                  <img
+                    className="w-24 h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer"
+                    alt="Email"
+                    src={contactIcons[0].icon}
+                  />
+                  <div className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg">
+                    peterchegen12@gmail.com
                   </div>
-                ))}
+                </a>
+                {/* GitHub */}
+                <a
+                  href="https://github.com/peter-njoro"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-6 animate-fade-in"
+                  style={{ "--animation-delay": `3900ms` } as React.CSSProperties}
+                >
+                  <img
+                    className="w-24 h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer"
+                    alt="GitHub"
+                    src={contactIcons[1].icon}
+                  />
+                  <div className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg">
+                    GitHub
+                  </div>
+                </a>
+                {/* LinkedIn */}
+                <a
+                  href="https://www.linkedin.com/in/chege-peter/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center gap-6 animate-fade-in"
+                  style={{ "--animation-delay": `4100ms` } as React.CSSProperties}
+                >
+                  <img
+                    className="w-24 h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer"
+                    alt="LinkedIn"
+                    src={contactIcons[2].icon}
+                  />
+                  <div className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg">
+                    LinkedIn
+                  </div>
+                </a>
               </div>
             </CardContent>
           </Card>
