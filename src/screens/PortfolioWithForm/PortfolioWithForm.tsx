@@ -361,7 +361,7 @@ export const PortfolioWithForm = (): JSX.Element => {
       </section>
 
       {/* Experience Section */}
-      <section className="flex flex-col items-center justify-center py-24 bg-transparent" id="experience">
+      <section className="experience flex flex-col items-center justify-center py-24 bg-transparent" id="experience">
         <div className="flex flex-col items-center gap-1 mb-10">
           <h2 className="font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
             Experience
@@ -514,7 +514,6 @@ export const PortfolioWithForm = (): JSX.Element => {
           alt="Vector"
           src="https://c.animaapp.com/mftog3eawa0jbJ/img/vector.svg"
         />
-      
       </div>
     </div>
   );
