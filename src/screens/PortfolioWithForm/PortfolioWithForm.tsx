@@ -1,6 +1,17 @@
+import * as React from "react";
 import { Button } from "../../components/ui/button";
 import { Card, CardContent } from "../../components/ui/card";
 
+// Data for about section
+const about = [
+  {
+    title: "About Me",
+    description: 
+      "Peter Njoroge is an aspiring data scientist with a strong foundation in computer science and a passion for solving real-world problems using data. Currently pursuing his bachelor's degree in Computer Science, Peter is building a personal brand around leveraging machine learning and analytics to address challenges in Africa, particularly in natural resource management and sustainability. His long-term goal is to become a leading data science professional who contributes to both industry innovation and impactful projects that improve livelihoods. Peter has already developed a facial recognition attendance system, FaceTrack Lite, as a demonstration of his skills in computer vision and artificial intelligence. He has also participated in collaborative projects through ALX, where he explored applying data science to global challenges such as deforestation and cultural preservation. These experiences highlight his ability to merge technical knowledge with social impact, while working effectively in diverse teams. Driven, adaptable, and motivated by curiosity, Peter continues to grow his expertise in data science while aspiring to create solutions that empower communities and advance Africa's role in the global digital economy.",
+    video:
+     "https://drive.google.com/file/d/1XKoh7LC0Hjbozc50UG_Q5cuAmZPznAB8/view?usp=drive_link",
+  },
+];
 // Data for projects
 const projects = [
   {
@@ -123,167 +134,187 @@ const navItems = [
 
 
 export const PortfolioWithForm = (): JSX.Element => {
+  const [aboutExpanded, setAboutExpanded] = React.useState(false);
+  const aboutWords = about[0].description.split(' ');
+  const aboutPreview = aboutWords.slice(0, 20).join(' ') + (aboutWords.length > 20 ? '...' : '');
   return (
-    <div
-      className="bg-bg-gray overflow-hidden w-full min-w-[1440px] min-h-[7332px] relative"
-      data-model-id="1:62"
-    >
-      {/* Hero background image */}
-      <img
-        className="absolute top-0 right-0 w-[720px] h-[629px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]"
-        alt="Image"
-        src="https://c.animaapp.com/mftog3eawa0jbJ/img/image.svg"
-      />
-
+    <div className="bg-bg-gray min-h-screen w-full flex flex-col items-center" data-model-id="1:62">
       {/* Header */}
-      <header className="absolute w-full top-0 left-0 h-14 flex justify-between bg-transparent translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-        <div className="mt-3 w-[115px] h-8 ml-[120px] [font-family:'Comfortaa',Helvetica] font-bold text-font-high-emphasis text-lg tracking-[0] leading-[32.4px] whitespace-nowrap">
+      <header className="w-full h-16 flex justify-between items-center px-8 bg-transparent shadow-sm sticky top-0 z-10">
+        <div className="[font-family:'Comfortaa',Helvetica] font-bold text-font-high-emphasis text-lg whitespace-nowrap">
           Peter Chege
         </div>
-
-        <nav className="inline-flex mt-3.5 w-[292px] h-7 relative mr-[120px] items-start gap-12">
-          {navItems.map((item, index) => (
-            <div
+        <nav className="flex gap-12">
+          {navItems.map((item) => (
+            <a
               key={item.label}
-              className="inline-flex flex-col items-start gap-0.5 relative flex-[0_0_auto]"
+              href={item.href}
+              className="font-body-18px font-[number:var(--body-18px-font-weight)] text-font-high-emphasis text-[length:var(--body-18px-font-size)] tracking-[var(--body-18px-letter-spacing)] leading-[var(--body-18px-line-height)] whitespace-nowrap [font-style:var(--body-18px-font-style)] hover:text-brand-yellow transition-colors cursor-pointer"
             >
-              <a
-                href={item.href}
-                className="relative w-fit mt-[-1.00px] font-body-18px font-[number:var(--body-18px-font-weight)] text-font-high-emphasis text-[length:var(--body-18px-font-size)] tracking-[var(--body-18px-letter-spacing)] leading-[var(--body-18px-line-height)] whitespace-nowrap [font-style:var(--body-18px-font-style)] hover:text-brand-yellow transition-colors cursor-pointer"
-              >
-                {item.label}
-              </a>
-            </div>
+              {item.label}
+            </a>
           ))}
         </nav>
       </header>
 
-      {/* Hero intro image */}
-      <img
-        className="absolute top-[111px] left-[120px] w-[486px] h-[372px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]"
-        alt="Intro"
-        src="https://c.animaapp.com/mftog3eawa0jbJ/img/intro.png"
-      />
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center py-24 bg-transparent" id="hero">
+        <img
+          className="object-cover mb-8 absolute top-0 right-0 w-[720px] h-[629px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:0ms]"
+          alt="Hero Background"
+          src="https://c.animaapp.com/mftog3eawa0jbJ/img/image.svg"
+        />
+        <img
+          className="absolute top-[111px] left-[120px] w-[486px] h-[372px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms] object-cover"
+          alt="Intro"
+          src="https://c.animaapp.com/mftog3eawa0jbJ/img/intro.png"
+        />
+      </section>
 
-      {/* Projects Section */}
-      <section className="inline-flex flex-col items-center justify-center gap-20 absolute top-[773px] left-[calc(50.00%_-_498px)] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:600ms]">
-        <div className="inline-flex flex-col items-center justify-center gap-1 relative flex-[0_0_auto]">
-          <h2 className="relative w-fit mt-[-1.00px] font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
-            Projects
+
+
+
+      {/* About Section */}
+  <section className="flex flex-col items-center justify-center py-24 bg-transparent mt-48 md:mt-64 w-full" id="about">
+        <div className="flex flex-col items-center gap-1 mb-10">
+          <h2 className="font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
+            {about[0].title}
           </h2>
-          <div className="relative w-[100px] h-1 bg-[#fdc435] rounded-sm" />
+          <div className="w-[100px] h-1 bg-[#fdc435] rounded-sm" />
         </div>
-
-        {projects.map((project, index) => (
-          <Card
-            key={index}
-            className="flex w-[992px] h-[524px] items-start relative rounded-3xl overflow-hidden shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0"
-            style={{ "--animation-delay": `${800 + index * 200}ms` } as React.CSSProperties}
-          >
-            <CardContent className="p-0 flex w-full h-full">
-              {project.imagePosition === "left" ? (
-                <>
-                  <img
-                    className="relative w-[496px] h-[524px] object-cover"
-                    alt="Project"
-                    src={project.image}
-                  />
-                  <div className="relative w-[496px] h-[524px] bg-bg-white">
-                    <div className="flex flex-col w-[81.99%] items-start gap-6 relative h-[44.27%] top-[27.96%] left-[10.17%]">
-                      <h3 className="self-stretch mt-[-1.00px] [font-family:'Playfair_Display',Helvetica] font-bold text-font-high-emphasis text-[40px] leading-[60px] relative tracking-[0]">
-                        {project.title}
-                      </h3>
-                      <p className="self-stretch [font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg leading-[27px] relative tracking-[0]">
-                        {project.description}
-                      </p>
-                      <Button
-                        variant="outline"
-                        className="inline-flex items-start px-6 py-2 relative flex-[0_0_auto] rounded-3xl border border-solid border-[#25282b] h-auto hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
-                      >
-                        <span className="w-fit mt-[-1.00px] [font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap relative tracking-[0]">
-                          View Project
-                        </span>
-                      </Button>
-                    </div>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className="relative w-[496px] h-[524px] bg-bg-white">
-                    <div className="flex flex-col w-[81.99%] items-start gap-6 relative h-[44.27%] top-[27.96%] left-[10.17%]">
-                      <h3 className="self-stretch mt-[-1.00px] [font-family:'Playfair_Display',Helvetica] font-bold text-font-high-emphasis text-[40px] leading-[60px] relative tracking-[0]">
-                        {project.title}
-                      </h3>
-                      <p className="self-stretch [font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg leading-[27px] relative tracking-[0]">
-                        {project.description}
-                      </p>
-                      <Button
-                        variant="outline"
-                        className="inline-flex items-start px-6 py-2 relative flex-[0_0_auto] rounded-3xl border border-solid border-[#25282b] h-auto hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
-                      >
-                        <span className="w-fit mt-[-1.00px] [font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap relative tracking-[0]">
-                          View Project
-                        </span>
-                      </Button>
-                    </div>
-                  </div>
-                  <img
-                    className="relative w-[496px] h-[524px] object-cover"
-                    alt="Project"
-                    src={project.image}
-                  />
-                </>
-              )}
+        <div className="flex flex-col md:flex-row justify-center items-center gap-8 w-full max-w-4xl">
+          <Card className="w-full bg-white rounded-3xl shadow-lg animate-fade-in">
+            <CardContent className="p-8 w-full h-full flex flex-col md:flex-row">
+              <div className="flex-1 pr-0 md:pr-8 mb-8 md:mb-0">
+                <p className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg leading-[27px]">
+                  {aboutExpanded ? about[0].description : aboutPreview}
+                </p>
+                {aboutWords.length > 20 && (
+                  <button
+                    className="mt-4 px-4 py-2 bg-brand-yellow text-black rounded-2xl font-semibold shadow hover:bg-yellow-400 transition-colors"
+                    onClick={() => setAboutExpanded((prev) => !prev)}
+                  >
+                    {aboutExpanded ? 'Show Less' : 'Read More'}
+                  </button>
+                )}
+              </div>
+              <div className="flex-1 pl-0 md:pl-8 flex justify-center items-center">
+                <iframe
+                  className="w-full h-48 md:h-64 rounded-2xl"
+                  src={about[0].video}
+                  title="About Me Video"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
             </CardContent>
           </Card>
-        ))}
+        </div>
+      </section>
+
+      {/* Projects Section */}
+      <section className="flex flex-col items-center justify-center py-24 bg-transparent" id="projects">
+        <div className="flex flex-col items-center gap-1 mb-10">
+          <h2 className="font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
+            Projects
+          </h2>
+          <div className="w-[100px] h-1 bg-[#fdc435] rounded-sm" />
+        </div>
+        <div className="flex flex-col gap-12 w-full max-w-4xl">
+          {projects.map((project, index) => (
+            <Card
+              key={index}
+              className="flex flex-col md:flex-row w-full bg-white rounded-3xl overflow-hidden shadow-lg animate-fade-in"
+              style={{ "--animation-delay": `${800 + index * 200}ms` } as React.CSSProperties}
+            >
+              <CardContent className="p-0 flex w-full h-full">
+                {project.imagePosition === "left" ? (
+                  <>
+                    <img
+                      className="w-full md:w-1/2 h-64 md:h-[524px] object-cover"
+                      alt="Project"
+                      src={project.image}
+                    />
+                    <div className="w-full md:w-1/2 flex flex-col justify-center p-8">
+                      <h3 className="[font-family:'Playfair_Display',Helvetica] font-bold text-font-high-emphasis text-2xl md:text-[40px] leading-tight mb-4">
+                        {project.title}
+                      </h3>
+                      <p className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg leading-[27px] mb-6">
+                        {project.description}
+                      </p>
+                      <Button
+                        variant="outline"
+                        className="rounded-3xl border border-solid border-[#25282b] hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
+                      >
+                        <span className="[font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap">
+                          View Project
+                        </span>
+                      </Button>
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div className="w-full md:w-1/2 flex flex-col justify-center p-8">
+                      <h3 className="[font-family:'Playfair_Display',Helvetica] font-bold text-font-high-emphasis text-2xl md:text-[40px] leading-tight mb-4">
+                        {project.title}
+                      </h3>
+                      <p className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg leading-[27px] mb-6">
+                        {project.description}
+                      </p>
+                      <Button
+                        variant="outline"
+                        className="rounded-3xl border border-solid border-[#25282b] hover:bg-brand-yellow hover:border-brand-yellow transition-colors"
+                      >
+                        <span className="[font-family:'Roboto',Helvetica] font-medium text-font-high-emphasis text-lg leading-[27px] whitespace-nowrap">
+                          View Project
+                        </span>
+                      </Button>
+                    </div>
+                    <img
+                      className="w-full md:w-1/2 h-64 md:h-[524px] object-cover"
+                      alt="Project"
+                      src={project.image}
+                    />
+                  </>
+                )}
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </section>
 
       {/* Experience Section */}
-      <section className="absolute top-[2867px] w-full">
-        {/* Experience Header */}
-        <div className="flex flex-col items-center justify-center gap-1 mb-20">
+      <section className="flex flex-col items-center justify-center py-24 bg-transparent" id="experience">
+        <div className="flex flex-col items-center gap-1 mb-10">
           <h2 className="font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
             Experience
           </h2>
           <div className="w-[100px] h-1 bg-[#fdc435] rounded-sm" />
         </div>
-
-        {/* Experience Background Card */}
-        <div className="flex justify-center">
-          <Card className="w-[992px] h-[1048px] bg-white rounded-3xl shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1600ms]">
-            <CardContent className="p-8 w-full h-full relative">
+        <div className="flex justify-center w-full max-w-4xl">
+          <Card className="w-full bg-white rounded-3xl shadow-lg animate-fade-in">
+            <CardContent className="p-8 w-full h-full">
               {experiences.map((exp, index) => (
                 <div
                   key={index}
-                  className={`relative mb-16 last:mb-0 translate-y-[-1rem] animate-fade-in opacity-0`}
+                  className="mb-12 last:mb-0 animate-fade-in"
                   style={{ "--animation-delay": `${1800 + index * 200}ms` } as React.CSSProperties}
                 >
-                  <div className="flex items-start gap-8">
-                    {/* Left side - Timeline */}
-                    <div className="flex flex-col items-center w-32 flex-shrink-0">
-                      {/* Yellow Circle */}
+                  <div className="flex flex-col md:flex-row items-start gap-8">
+                    <div className="flex flex-col items-center w-full md:w-32 flex-shrink-0 mb-4 md:mb-0">
                       <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#febc2f] to-[#98711c] mb-4" />
-                      
-                      {/* Icon */}
                       <img
                         className="w-48 h-24 object-contain"
                         alt="Experience"
                         src={exp.iconSrc}
                       />
                     </div>
-
-                    {/* Right side - Content */}
                     <div className="flex-1">
-                      {/* Glass Card */}
-                      <div className="w-full bg-[#d9d9d91a] rounded-[35px] border border-white/20 backdrop-blur-[17.5px] p-8 mb-4 relative before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-[35px] before:bg-gradient-to-r before:from-white/10 before:to-white/10 before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude]">
-                        
-                        {/* Title */}
+                      <div className="w-full bg-[#d9d9d91a] rounded-[35px] border border-white/20 backdrop-blur-[17.5px] p-8 mb-4">
                         <h3 className="[font-family:'Playfair_Display',Helvetica] font-bold text-black text-2xl mb-4 leading-tight">
                           {exp.title}
                         </h3>
-
-                        {/* Description */}
                         {exp.description && (
                           <p className="[font-family:'Nunito',Helvetica] font-normal text-black text-lg leading-relaxed">
                             {exp.description}
@@ -299,26 +330,22 @@ export const PortfolioWithForm = (): JSX.Element => {
         </div>
       </section>
 
-
       {/* Skills Section */}
-      <section className="absolute top-[4139px] w-full">
-        {/* Skills Header */}
-        <div className="flex flex-col items-center justify-center gap-1 mb-20">
+      <section className="w-full flex flex-col items-center justify-center py-24 bg-transparent" id="skills">
+        <div className="flex flex-col items-center gap-1 mb-10">
           <h2 className="font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
             Skills
           </h2>
           <div className="w-[100px] h-1 bg-[#fdc435] rounded-sm" />
         </div>
-
-        {/* Skills Background Card */}
-        <div className="flex justify-center">
-          <Card className="w-[992px] h-[542px] bg-white rounded-3xl shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:2600ms]">
+        <div className="flex justify-center w-full max-w-4xl">
+          <Card className="w-full bg-white rounded-3xl shadow-lg animate-fade-in">
             <CardContent className="p-8 w-full h-full">
-              <div className="grid grid-cols-3 gap-8 h-full items-center justify-items-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-full items-center justify-items-center">
                 {skills.map((skill, index) => (
                   <div
                     key={skill.name}
-                    className="flex flex-col items-center gap-4 translate-y-[-1rem] animate-fade-in opacity-0"
+                    className="flex flex-col items-center gap-4 animate-fade-in"
                     style={{ "--animation-delay": `${2800 + index * 200}ms` } as React.CSSProperties}
                   >
                     <img
@@ -337,25 +364,22 @@ export const PortfolioWithForm = (): JSX.Element => {
         </div>
       </section>
 
-       {/* Contact Section */}
-      <section className="absolute top-[4926px] w-full">
-        {/* Contact Header */}
-        <div className="flex flex-col items-center justify-center gap-1 mb-20">
+      {/* Contact Section */}
+      <section className="w-full flex flex-col items-center justify-center py-24 bg-transparent" id="contacts">
+        <div className="flex flex-col items-center gap-1 mb-10">
           <h2 className="font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
             Contact
           </h2>
           <div className="w-[100px] h-1 bg-[#fdc435] rounded-sm" />
         </div>
-
-        {/* Contact Background Card */}
-        <div className="flex justify-center">
-          <Card className="w-[992px] h-[542px] bg-white rounded-3xl shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:3500ms]">
+        <div className="flex justify-center w-full max-w-4xl">
+          <Card className="w-full bg-white rounded-3xl shadow-lg animate-fade-in">
             <CardContent className="p-8 w-full h-full">
-              <div className="flex justify-around items-center h-full">
+              <div className="flex flex-col md:flex-row justify-around items-center h-full gap-8">
                 {contactIcons.map((contact, index) => (
                   <div
                     key={index}
-                    className="flex flex-col items-center gap-6 translate-y-[-1rem] animate-fade-in opacity-0"
+                    className="flex flex-col items-center gap-6 animate-fade-in"
                     style={{ "--animation-delay": `${3700 + index * 200}ms` } as React.CSSProperties}
                   >
                     <img
@@ -374,19 +398,14 @@ export const PortfolioWithForm = (): JSX.Element => {
         </div>
       </section>
 
-
       {/* Footer Wave */}
-      <div className="absolute top-[6259px] left-0 w-full h-[1073px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:4000ms]">
+      <div className="absolute top-[6259px] left-0 w-full animate-fade-in opacity-0 [--animation-delay:4000ms]">
         <img
           className="absolute w-full h-[34.26%] top-[65.73%] left-0"
           alt="Vector"
           src="https://c.animaapp.com/mftog3eawa0jbJ/img/vector.svg"
         />
-        <img
-          className="absolute top-[113px] left-[340px] w-6 h-6"
-          alt="Material icon theme"
-          src="https://c.animaapp.com/mftog3eawa0jbJ/img/material-icon-theme-python.svg"
-        />
+      
       </div>
     </div>
   );
