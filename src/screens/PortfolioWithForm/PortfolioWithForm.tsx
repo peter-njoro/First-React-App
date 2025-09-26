@@ -120,6 +120,8 @@ const navItems = [
   { label: "Contacts", href: "#contacts" },
 ];
 
+
+
 export const PortfolioWithForm = (): JSX.Element => {
   return (
     <div
@@ -237,132 +239,149 @@ export const PortfolioWithForm = (): JSX.Element => {
         ))}
       </section>
 
-      {/* Experience Section Header */}
-      <div className="inline-flex flex-col items-center justify-center gap-20 absolute top-[2867px] left-[calc(50.00%_-_126px)] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1400ms]">
-        <div className="inline-flex flex-col items-center justify-center gap-1 relative flex-[0_0_auto]">
-          <h2 className="relative w-fit mt-[-1.00px] font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
+      {/* Experience Section */}
+      <section className="absolute top-[2867px] w-full">
+        {/* Experience Header */}
+        <div className="flex flex-col items-center justify-center gap-1 mb-20">
+          <h2 className="font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
             Experience
           </h2>
-          <div className="relative w-[100px] h-1 bg-[#fdc435] rounded-sm" />
+          <div className="w-[100px] h-1 bg-[#fdc435] rounded-sm" />
         </div>
-      </div>
 
-      {/* Experience Background Card */}
-      <Card className="absolute top-[2989px] left-[218px] w-[992px] h-[1048px] bg-white rounded-3xl shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1600ms]">
-        <CardContent className="p-0 w-full h-full relative">
-          {/* Experience Items */}
-          {experiences.map((exp, index) => (
-            <div
-              key={index}
-              className={`translate-y-[-1rem] animate-fade-in opacity-0`}
-              style={{ "--animation-delay": `${800 + index * 200}ms` } as React.CSSProperties}
-            >
-              {/* Yellow Circle */}
-              <div
-                className={`absolute w-[200px] h-[200px] rounded-[100px] [background:radial-gradient(50%_50%_at_28%_31%,rgba(255,255,255,1)_0%,rgba(255,255,255,0)_100%),linear-gradient(180deg,rgba(254,188,47,1)_0%,rgba(152,113,28,1)_100%)] ${exp.circlePosition}`}
-              />
-
-              {/* Icon */}
-              <img
-                className={`absolute w-[274px] h-[155px] ${exp.iconPosition}`}
-                alt="Rectangle"
-                src={exp.iconSrc}
-              />
-
-              {/* Glass Card */}
-              <div
-                className={`absolute w-[667px] h-[228px] bg-[#d9d9d91a] rounded-[35px] border-[none] backdrop-blur-[17.5px] backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(17.5px)_brightness(100%)] before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-[35px] before:[background:linear-gradient(263deg,rgba(255,255,255,0.1)_0%,rgba(255,255,255,0.1)_100%)] before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude] before:z-[1] before:pointer-events-none ${exp.cardPosition}`}
-              />
-
-              {/* Title */}
-              <h3
-                className={`absolute w-[588px] [font-family:'Playfair_Display',Helvetica] font-bold text-black text-[40px] tracking-[0] leading-[normal] ${exp.titlePosition}`}
-              >
-                {exp.title}
-              </h3>
-
-              {/* Description */}
-              {exp.description && (
-                <p
-                  className={`absolute w-[575px] [font-family:'Nunito',Helvetica] font-normal text-black text-lg tracking-[0] leading-[normal] ${exp.descPosition}`}
+        {/* Experience Background Card */}
+        <div className="flex justify-center">
+          <Card className="w-[992px] h-[1048px] bg-white rounded-3xl shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:1600ms]">
+            <CardContent className="p-8 w-full h-full relative">
+              {experiences.map((exp, index) => (
+                <div
+                  key={index}
+                  className={`relative mb-16 last:mb-0 translate-y-[-1rem] animate-fade-in opacity-0`}
+                  style={{ "--animation-delay": `${1800 + index * 200}ms` } as React.CSSProperties}
                 >
-                  {exp.description}
-                </p>
-              )}
-            </div>
-          ))}
-        </CardContent>
-      </Card>
+                  <div className="flex items-start gap-8">
+                    {/* Left side - Timeline */}
+                    <div className="flex flex-col items-center w-32 flex-shrink-0">
+                      {/* Yellow Circle */}
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-b from-[#febc2f] to-[#98711c] mb-4" />
+                      
+                      {/* Icon */}
+                      <img
+                        className="w-48 h-24 object-contain"
+                        alt="Experience"
+                        src={exp.iconSrc}
+                      />
+                    </div>
 
-      {/* Skills Section Header */}
-      <div className="top-[4139px] left-[calc(50.00%_-_66px)] inline-flex flex-col items-center justify-center gap-20 absolute translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:2400ms]">
-        <div className="inline-flex flex-col items-center justify-center gap-1 relative flex-[0_0_auto]">
-          <h2 className="relative w-fit mt-[-1.00px] font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
+                    {/* Right side - Content */}
+                    <div className="flex-1">
+                      {/* Glass Card */}
+                      <div className="w-full bg-[#d9d9d91a] rounded-[35px] border border-white/20 backdrop-blur-[17.5px] p-8 mb-4 relative before:content-[''] before:absolute before:inset-0 before:p-px before:rounded-[35px] before:bg-gradient-to-r before:from-white/10 before:to-white/10 before:[-webkit-mask:linear-gradient(#fff_0_0)_content-box,linear-gradient(#fff_0_0)] before:[-webkit-mask-composite:xor] before:[mask-composite:exclude]">
+                        
+                        {/* Title */}
+                        <h3 className="[font-family:'Playfair_Display',Helvetica] font-bold text-black text-2xl mb-4 leading-tight">
+                          {exp.title}
+                        </h3>
+
+                        {/* Description */}
+                        {exp.description && (
+                          <p className="[font-family:'Nunito',Helvetica] font-normal text-black text-lg leading-relaxed">
+                            {exp.description}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+
+      {/* Skills Section */}
+      <section className="absolute top-[4139px] w-full">
+        {/* Skills Header */}
+        <div className="flex flex-col items-center justify-center gap-1 mb-20">
+          <h2 className="font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
             Skills
           </h2>
-          <div className="relative w-[100px] h-1 bg-[#fdc435] rounded-sm" />
+          <div className="w-[100px] h-1 bg-[#fdc435] rounded-sm" />
         </div>
-      </div>
 
-      {/* Skills Background Card */}
-      <Card className="absolute top-[4288px] left-[218px] w-[992px] h-[542px] bg-white rounded-3xl shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:2600ms]">
-        <CardContent className="p-0 w-full h-full relative">
-          {/* Skills Icons */}
-          {skills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className={`translate-y-[-1rem] animate-fade-in opacity-0`}
-              style={{ "--animation-delay": `${800 + index * 200}ms` } as React.CSSProperties}
-            >
-              <img
-                className={`absolute w-[200px] h-[200px] ${skill.position}`}
-                alt={skill.name}
-                src={skill.icon}
-              />
-              <div
-                className={`absolute w-fit [font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg tracking-[0] leading-[27px] ${skill.labelPosition} ${skill.name === "Postgres" || skill.name === "Data Analysis" ? "whitespace-nowrap" : ""}`}
-              >
-                {skill.name}
+        {/* Skills Background Card */}
+        <div className="flex justify-center">
+          <Card className="w-[992px] h-[542px] bg-white rounded-3xl shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:2600ms]">
+            <CardContent className="p-8 w-full h-full">
+              <div className="grid grid-cols-3 gap-8 h-full items-center justify-items-center">
+                {skills.map((skill, index) => (
+                  <div
+                    key={skill.name}
+                    className="flex flex-col items-center gap-4 translate-y-[-1rem] animate-fade-in opacity-0"
+                    style={{ "--animation-delay": `${2800 + index * 200}ms` } as React.CSSProperties}
+                  >
+                    <img
+                      className="w-32 h-32 object-contain hover:scale-110 transition-transform duration-300"
+                      alt={skill.name}
+                      src={skill.icon}
+                    />
+                    <div className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg text-center">
+                      {skill.name}
+                    </div>
+                  </div>
+                ))}
               </div>
-            </div>
-          ))}
-        </CardContent>
-      </Card>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
 
-      {/* Contact Section Header */}
-      <div className="top-[4926px] left-[calc(50.00%_-_87px)] inline-flex flex-col items-center justify-center gap-20 absolute translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:3300ms]">
-        <div className="inline-flex flex-col items-center justify-center gap-1 relative flex-[0_0_auto]">
-          <h2 className="relative w-fit mt-[-1.00px] font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
+       {/* Contact Section */}
+      <section className="absolute top-[4926px] w-full">
+        {/* Contact Header */}
+        <div className="flex flex-col items-center justify-center gap-1 mb-20">
+          <h2 className="font-title-h2 font-[number:var(--title-h2-font-weight)] text-font-high-emphasis text-[length:var(--title-h2-font-size)] text-center tracking-[var(--title-h2-letter-spacing)] leading-[var(--title-h2-line-height)] whitespace-nowrap [font-style:var(--title-h2-font-style)]">
             Contact
           </h2>
-          <div className="relative w-[100px] h-1 bg-[#fdc435] rounded-sm" />
+          <div className="w-[100px] h-1 bg-[#fdc435] rounded-sm" />
         </div>
-      </div>
 
-      {/* Contact Background Card */}
-      <Card className="absolute top-[5102px] left-[218px] w-[992px] h-[542px] bg-white rounded-3xl shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:3500ms]">
-        <CardContent className="p-0 w-full h-full relative">
-          {/* Contact Icons */}
-          {contactIcons.map((contact, index) => (
-            <img
-              key={index}
-              className={`absolute w-[200px] h-[200px] ${contact.position} translate-y-[-1rem] animate-fade-in opacity-0 hover:scale-110 transition-transform cursor-pointer`}
-              style={{ "--animation-delay": `${800 + index * 200}ms` } as React.CSSProperties}
-              alt="Contact"
-              src={contact.icon}
-            />
-          ))}
-        </CardContent>
-      </Card>
+        {/* Contact Background Card */}
+        <div className="flex justify-center">
+          <Card className="w-[992px] h-[542px] bg-white rounded-3xl shadow-[0px_6px_64px_#7090b01a] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:3500ms]">
+            <CardContent className="p-8 w-full h-full">
+              <div className="flex justify-around items-center h-full">
+                {contactIcons.map((contact, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col items-center gap-6 translate-y-[-1rem] animate-fade-in opacity-0"
+                    style={{ "--animation-delay": `${3700 + index * 200}ms` } as React.CSSProperties}
+                  >
+                    <img
+                      className="w-24 h-24 object-contain hover:scale-110 transition-transform duration-300 cursor-pointer"
+                      alt="Contact"
+                      src={contact.icon}
+                    />
+                    <div className="[font-family:'Nunito',Helvetica] font-normal text-font-medium-emphasis text-lg">
+                      {index === 0 ? 'Email' : index === 1 ? 'GitHub' : 'LinkedIn'}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
 
       {/* Footer Wave */}
-      <div className="absolute top-[6259px] left-[41px] w-[1440px] h-[1073px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:4000ms]">
+      <div className="absolute top-[6259px] left-0 w-full h-[1073px] translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:4000ms]">
         <img
           className="absolute w-full h-[34.26%] top-[65.73%] left-0"
           alt="Vector"
           src="https://c.animaapp.com/mftog3eawa0jbJ/img/vector.svg"
         />
-
         <img
           className="absolute top-[113px] left-[340px] w-6 h-6"
           alt="Material icon theme"
